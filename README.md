@@ -6,9 +6,9 @@ Modular engineering platform for wind project development, GIS/layout, meteorolo
 
 ## Current status
 
-**CAP-R0-02 authentication** implemented (UD-008 standing approval). Next: organizations.
+**CAP-R0-03 organizations** implemented. Next: membership management API (CAP-R0-04).
 
-Stack (AD-001 / AD-002 / AD-003): Django + Django REST Framework + PostgreSQL + Token auth.
+Stack: Django + DRF + PostgreSQL + Token auth + multi-tenant organizations.
 
 ## Documentation
 
@@ -80,6 +80,10 @@ Call authenticated endpoints with header: `Authorization: Token <token>`.
 | POST | `/api/v1/auth/logout/` | Token |
 | GET | `/api/v1/auth/me/` | Token |
 | GET | `/api/v1/health/` | Public |
+| GET/POST | `/api/v1/organizations/` | Token |
+| GET/PATCH | `/api/v1/organizations/{id}/` | Token (member / org_admin) |
+
+Creating an organization makes you `org_admin`. You only see organizations you belong to.
 
 ## Tests
 
