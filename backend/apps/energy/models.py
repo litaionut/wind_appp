@@ -67,3 +67,37 @@ class EnergyAssessment(models.Model):
 
     class Meta:
         ordering = ["-created_at"]
+
+
+class CtCurve(models.Model):
+    """Thrust coefficient curve vs wind speed (for wake models)."""
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    turbine_model = models.ForeignKey(
+        TurbineModel, on_delete=models.CASCADE, related_name="ct_curves"
+    )
+    name = models.CharField(max_length=255)
+    air_density_ref_kg_m3 = models.FloatField(default=1.225)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["name"]
+
+    def __str__(self) -> str:
+        return f"{self.name} ({self.turbine_model})"
+
+
+class CtCurvePoint(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    ct_curve = models.ForeignKey(CtCurve, on_delete=models.CASCADE, related_name="points")
+    wind_speed_m_s = models.FloatField()
+    ct = models.FloatField()
+
+    class Meta:
+        ordering = ["wind_speed_m_s"]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["ct_curve", "wind_speed_m_s"],
+                name="uniq_ct_curve_wind_speed",
+            )
+        ]

@@ -6,8 +6,9 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
-- First React SPA (`frontend/`): login, organizations/projects, project AEP slice (UD-002 / AD-015)
-- CORS support for local Vite (`django-cors-headers`)
+- Layout UI: map, add/edit/import turbines, catalogue create + power/Ct CSV (AD-016 / RD-001)
+- Ct curves API (`/energy/ct-curves/`) and turbine model POST create
+- Position import supports optional `manufacturer` + `model`
 
 ### Added (included in `v0.3.0`)
 

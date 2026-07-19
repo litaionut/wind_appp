@@ -6,7 +6,7 @@ import csv
 import io
 from typing import Any
 
-from apps.energy.models import EnergyAssessment, PowerCurve, PowerCurvePoint
+from apps.energy.models import CtCurve, CtCurvePoint, EnergyAssessment, PowerCurve, PowerCurvePoint
 from apps.gis.models import TurbinePosition
 
 
@@ -31,6 +31,31 @@ def import_power_curve_csv(power_curve: PowerCurve, text: str) -> dict[str, Any]
             power_kw=float(row["power_kw"]),
         )
         created += 1
+    if created < 2:
+        raise EnergyError("Power curve requires at least 2 points")
+    return {"points": created}
+
+
+def import_ct_curve_csv(ct_curve: CtCurve, text: str) -> dict[str, Any]:
+    reader = csv.DictReader(io.StringIO(text))
+    if reader.fieldnames is None or not {"ws_m_s", "ct"}.issubset(
+        {h.strip() for h in reader.fieldnames}
+    ):
+        raise EnergyError("CSV must include ws_m_s,ct")
+    ct_curve.points.all().delete()
+    created = 0
+    for row in reader:
+        ct = float(row["ct"])
+        if ct < 0 or ct > 1.05:
+            raise EnergyError(f"ct out of range at ws={row['ws_m_s']}: {ct}")
+        CtCurvePoint.objects.create(
+            ct_curve=ct_curve,
+            wind_speed_m_s=float(row["ws_m_s"]),
+            ct=ct,
+        )
+        created += 1
+    if created < 2:
+        raise EnergyError("Ct curve requires at least 2 points")
     return {"points": created}
 
 

@@ -282,6 +282,41 @@ h2 {
   letter-spacing: -0.02em;
 }
 
+.layout-page .layout-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 960px) {
+  .layout-page .layout-grid {
+    grid-template-columns: 1.4fr 1fr;
+    align-items: start;
+  }
+}
+
+.layout-map {
+  height: min(62vh, 520px);
+  width: 100%;
+  background:
+    linear-gradient(0deg, rgba(31, 111, 122, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(31, 111, 122, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  border: 1px solid color-mix(in srgb, var(--ink) 14%, transparent);
+}
+
+.layout-map .leaflet-container {
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  font: inherit;
+}
+
+button.ghost.selected {
+  background: color-mix(in srgb, var(--sea) 18%, transparent);
+  border-color: var(--sea);
+}
+
 .page-center {
   min-height: 100vh;
   display: grid;

@@ -2,6 +2,8 @@ from django.urls import path
 
 from apps.energy.api.advanced_views import JensenWakeView, MCPLinearView, UncertaintyView
 from apps.energy.api.views import (
+    CtCurveImportView,
+    CtCurveListCreateView,
     PowerCurveImportView,
     PowerCurveListCreateView,
     ProjectEnergyAssessmentListCreateView,
@@ -13,6 +15,12 @@ urlpatterns = [
         "energy/power-curves/<uuid:curve_id>/import/",
         PowerCurveImportView.as_view(),
         name="power-curve-import",
+    ),
+    path("energy/ct-curves/", CtCurveListCreateView.as_view(), name="ct-curves"),
+    path(
+        "energy/ct-curves/<uuid:curve_id>/import/",
+        CtCurveImportView.as_view(),
+        name="ct-curve-import",
     ),
     path(
         "projects/<uuid:project_id>/energy-assessments/",

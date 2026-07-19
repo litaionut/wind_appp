@@ -13,6 +13,7 @@ from apps.gis.api.turbine_views import (
     ProjectTurbineImportView,
     ProjectTurbineListCreateView,
     TurbineCatalogueImportView,
+    TurbineManufacturerListCreateView,
     TurbineModelListView,
 )
 from apps.gis.api.views import CRSListCreateView, ProjectCRSListCreateView, TransformView
@@ -26,6 +27,11 @@ urlpatterns = [
     ),
     path("gis/transform/", TransformView.as_view(), name="gis-transform"),
     path("gis/turbine-models/", TurbineModelListView.as_view(), name="turbine-models"),
+    path(
+        "gis/turbine-manufacturers/",
+        TurbineManufacturerListCreateView.as_view(),
+        name="turbine-manufacturers",
+    ),
     path(
         "gis/turbine-catalogue/import/",
         TurbineCatalogueImportView.as_view(),

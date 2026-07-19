@@ -90,7 +90,8 @@ export function ProjectPage() {
           <h1>{project?.name ?? "Project"}</h1>
           <p className="lede">
             Review layout turbines and run a preliminary gross/net AEP using an existing power
-            curve.
+            curve.{" "}
+            <Link to={`/projects/${projectId}/layout`}>Open layout map →</Link>
           </p>
           {error ? <p className="error">{error}</p> : null}
         </section>

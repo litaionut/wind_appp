@@ -1,6 +1,12 @@
 from django.contrib import admin
 
-from apps.energy.models import EnergyAssessment, PowerCurve, PowerCurvePoint
+from apps.energy.models import (
+    CtCurve,
+    CtCurvePoint,
+    EnergyAssessment,
+    PowerCurve,
+    PowerCurvePoint,
+)
 
 
 class PowerCurvePointInline(admin.TabularInline):
@@ -12,6 +18,17 @@ class PowerCurvePointInline(admin.TabularInline):
 class PowerCurveAdmin(admin.ModelAdmin):
     list_display = ("name", "turbine_model", "air_density_ref_kg_m3")
     inlines = [PowerCurvePointInline]
+
+
+class CtCurvePointInline(admin.TabularInline):
+    model = CtCurvePoint
+    extra = 0
+
+
+@admin.register(CtCurve)
+class CtCurveAdmin(admin.ModelAdmin):
+    list_display = ("name", "turbine_model", "air_density_ref_kg_m3")
+    inlines = [CtCurvePointInline]
 
 
 @admin.register(EnergyAssessment)

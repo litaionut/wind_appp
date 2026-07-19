@@ -11,6 +11,7 @@ from rest_framework.views import APIView
 
 from apps.audit.services import record_event
 from apps.gis.api.turbine_serializers import (
+    TurbineManufacturerSerializer,
     TurbineModelSerializer,
     TurbinePositionSerializer,
     TurbinePositionWriteSerializer,
@@ -20,6 +21,7 @@ from apps.gis.distances import pairwise_distances
 from apps.gis.models import (
     ProjectCRS,
     ProjectCRSRole,
+    TurbineManufacturer,
     TurbineModel,
     TurbinePosition,
 )
@@ -55,6 +57,36 @@ class TurbineModelListView(APIView):
     def get(self, request: Request) -> Response:
         models_qs = TurbineModel.objects.select_related("manufacturer")
         return Response(TurbineModelSerializer(models_qs, many=True).data)
+
+    def post(self, request: Request) -> Response:
+        serializer = TurbineModelSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        model = serializer.save()
+        record_event(
+            action="turbine_model.created",
+            actor=request.user,
+            entity_type="turbine_model",
+            entity_id=model.id,
+            metadata={"name": str(model)},
+            request=request,
+        )
+        return Response(TurbineModelSerializer(model).data, status=status.HTTP_201_CREATED)
+
+
+class TurbineManufacturerListCreateView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request: Request) -> Response:
+        qs = TurbineManufacturer.objects.all()
+        return Response(TurbineManufacturerSerializer(qs, many=True).data)
+
+    def post(self, request: Request) -> Response:
+        serializer = TurbineManufacturerSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        mfr = serializer.save()
+        return Response(
+            TurbineManufacturerSerializer(mfr).data, status=status.HTTP_201_CREATED
+        )
 
 
 class TurbineCatalogueImportView(APIView):

@@ -36,6 +36,8 @@
 | UD-010 | User | Tag `v0.3.0` = API roadmap skeleton (R1–R9 stubs); proceed to first UI | **Approved** | 2026-07-19 | Owner: “go” |
 | UD-002 | User | Frontend = **React + Vite + TypeScript** SPA under `frontend/` | **Approved** | 2026-07-19 | Was deferred; unlocked |
 | AD-015 | Architecture | First UI slice: login, orgs/projects, project energy AEP; CORS for local Vite; Token auth | **Approved** | 2026-07-19 | Under UD-008 / UD-010 |
+| RD-001 | Research | Turbine/layout/curve required inputs for MVP layout UI | **Accepted** | 2026-07-19 | See docs/research/RD-001 |
+| AD-016 | Architecture | Layout UI + Ct curves + catalogue CRUD | **Approved** | 2026-07-19 | Owner layout epic |
 
 ## Deferred decisions (explicitly not blocking)
 

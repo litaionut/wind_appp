@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useAuth } from "./auth";
 import { HomePage } from "./pages/HomePage";
+import { LayoutPage } from "./pages/LayoutPage";
 import { LoginPage } from "./pages/LoginPage";
 import { ProjectPage } from "./pages/ProjectPage";
 
@@ -28,6 +29,14 @@ export default function App() {
         element={
           <Protected>
             <ProjectPage />
+          </Protected>
+        }
+      />
+      <Route
+        path="/projects/:projectId/layout"
+        element={
+          <Protected>
+            <LayoutPage />
           </Protected>
         }
       />
