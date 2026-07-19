@@ -41,6 +41,11 @@ INSTALLED_APPS = [
     "apps.gis",
     "apps.meteo",
     "apps.energy",
+    "apps.environment",
+    "apps.suitability",
+    "apps.operations",
+    "apps.financial",
+    "apps.hybrid",
 ]
 
 MIDDLEWARE = [

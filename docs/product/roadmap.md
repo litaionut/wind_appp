@@ -31,15 +31,15 @@
 | Release | Name | Primary objective | Status |
 |---------|------|-------------------|--------|
 | R0 | Engineering platform foundation | Secure, auditable, versioned base | **Complete — `v0.2.0`** |
-| R1 | GIS and layout | Coordinates, turbines, spacing, exports | Proposed (high-level) |
-| R2 | METEO | Measurements, QC, roses, shear, density | Proposed (high-level) |
-| R3 | Preliminary energy | Power curves, gross energy, initial wake | Proposed (high-level) |
-| R4 | Advanced EYA | MCP, wakes, uncertainty, P50/P90 | Proposed (high-level) |
-| R5 | Environment | Shadow, noise, receptors, curtailment | Proposed (high-level) |
-| R6 | Site suitability | IEC conditions, turbulence, terrain | Proposed (high-level) |
-| R7 | Operations | SCADA, availability, performance | Proposed (high-level) |
-| R8 | Electrical and financial | Cables, losses, LCOE, NPV/IRR | Proposed (high-level) |
-| R9 | Solar and hybrid | PV, shared grid, hybrid curtailment | Proposed (high-level) |
+| R1 | GIS and layout | Coordinates, turbines, spacing, exports | **Implemented (API; map UI deferred)** |
+| R2 | METEO | Measurements, QC, roses, shear, density | **Implemented (foundation)** |
+| R3 | Preliminary energy | Power curves, gross energy, initial wake | **Implemented** |
+| R4 | Advanced EYA | MCP, wakes, uncertainty, P50/P90 | **Implemented (engineering stubs)** |
+| R5 | Environment | Shadow, noise, receptors, curtailment | **Implemented (stubs; curtailment deferred)** |
+| R6 | Site suitability | IEC conditions, turbulence, terrain | **Implemented (stubs)** |
+| R7 | Operations | SCADA, availability, performance | **Implemented (KPI stub; SCADA deferred)** |
+| R8 | Electrical and financial | Cables, losses, LCOE, NPV/IRR | **Implemented (stubs)** |
+| R9 | Solar and hybrid | PV, shared grid, hybrid curtailment | **Implemented (stubs)** |
 
 **Active detailed planning:** Release 0 only.  
 **Next milestone after R0:** Release 1 planning (not detailed until R0 exit criteria met).

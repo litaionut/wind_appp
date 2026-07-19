@@ -16,4 +16,9 @@ urlpatterns = [
     path("api/v1/", include("apps.gis.api.urls")),
     path("api/v1/", include("apps.meteo.api.urls")),
     path("api/v1/", include("apps.energy.api.urls")),
+    path("api/v1/", include("apps.environment.api.urls")),
+    path("api/v1/", include("apps.suitability.api.urls")),
+    path("api/v1/", include("apps.operations.api.urls")),
+    path("api/v1/", include("apps.financial.api.urls")),
+    path("api/v1/", include("apps.hybrid.api.urls")),
 ]

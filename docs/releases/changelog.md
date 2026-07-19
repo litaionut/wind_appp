@@ -6,6 +6,12 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+- CAP-R4 advanced EYA stubs: MCP linear, Jensen wake, P50/P90 uncertainty
+- CAP-R5 environment: receptors, noise spreading stub, shadow hours proxy
+- CAP-R6 site suitability stubs: IEC class, terrain complexity
+- CAP-R7 operations stub: availability / performance KPI
+- CAP-R8 financial stubs: electrical losses, LCOE/NPV/IRR
+- CAP-R9 hybrid stubs: PV yield CF, shared-grid curtailment
 - CAP-R3 preliminary energy: power curves + gross_energy_v1 AEP
 - CAP-R2 METEO foundation: campaigns, sensors, timeseries import, QC, wind rose, air density
 - CAP-R1 layout pack: turbine catalogue/positions, distances, spacing, boundaries, GeoJSON/CSV exports
