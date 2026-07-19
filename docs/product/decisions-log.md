@@ -23,6 +23,7 @@
 | AD-003 | Architecture | CAP-R0-02 technical design (identity app, token API, default User model, login throttle) | **Approved** | 2026-07-19 | Under UD-008 |
 | AD-004 | Architecture | CAP-R0-03 Organizations + minimal membership on create | **Approved** | 2026-07-19 | Under UD-008 |
 | AD-005 | Architecture | CAP-R0-04 membership management API | **Approved** | 2026-07-19 | Under UD-008 |
+| AD-006 | Architecture | CAP-R0-05 Projects + project membership on create | **Approved** | 2026-07-19 | Under UD-008 |
 
 ## Deferred decisions (explicitly not blocking)
 

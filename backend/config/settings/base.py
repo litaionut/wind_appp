@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     "apps.core",
     "apps.identity",
     "apps.organizations",
+    "apps.projects",
 ]
 
 MIDDLEWARE = [
