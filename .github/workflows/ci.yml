@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: wind_platform
+          POSTGRES_USER: wind
+          POSTGRES_PASSWORD: wind
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U wind -d wind_platform"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+    env:
+      DJANGO_SETTINGS_MODULE: config.settings.test
+      DJANGO_SECRET_KEY: ci-test-secret-key-not-for-production
+      POSTGRES_DB: wind_platform
+      POSTGRES_USER: wind
+      POSTGRES_PASSWORD: wind
+      POSTGRES_HOST: 127.0.0.1
+      POSTGRES_PORT: 5432
+      # CI maps service port 5432 on the runner; local Compose uses host 5433.
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements/dev.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements/dev.txt
+
+      - name: Ruff
+        run: ruff check backend
+
+      - name: Pytest
+        run: pytest

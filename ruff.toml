@@ -1,0 +1,9 @@
+target-version = "py312"
+line-length = 100
+src = ["backend"]
+
+[lint]
+select = ["E", "F", "I", "UP"]
+
+[lint.per-file-ignores]
+"backend/config/settings/*.py" = ["F403", "F405"]
