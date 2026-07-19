@@ -16,7 +16,7 @@ copy .env.example .env
 docker compose up -d db
 .\.venv\Scripts\python backend\manage.py migrate
 .\.venv\Scripts\python backend\manage.py createsuperuser
-.\.venv\Scripts\python backend\manage.py runserver
+.\.venv\Scripts\python backend\manage.py runserver 127.0.0.1:8001
 ```
 
 In another terminal:
@@ -27,8 +27,8 @@ npm install
 npm run dev
 ```
 
-UI: http://127.0.0.1:5173 · API: http://127.0.0.1:8000  
-Postgres host port **5433**.
+UI: http://127.0.0.1:5173 · API (Wind_app): http://127.0.0.1:8001  
+(Vite proxies `/api` → `:8001`; use **8001** if another app already occupies 8000.)
 
 ## Core API (v1)
 
