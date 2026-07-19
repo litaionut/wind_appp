@@ -51,3 +51,23 @@ class ProjectCRS(models.Model):
 
     def __str__(self) -> str:
         return f"{self.project} [{self.role}] → {self.crs}"
+
+
+# Turbine catalogue / layout models (same app for Django discovery)
+from apps.gis.boundary_models import BoundaryKind, ProjectBoundary  # noqa: E402
+from apps.gis.turbine_models import (  # noqa: E402
+    TurbineManufacturer,
+    TurbineModel,
+    TurbinePosition,
+)
+
+__all__ = [
+    "CoordinateReferenceSystem",
+    "ProjectCRSRole",
+    "ProjectCRS",
+    "TurbineManufacturer",
+    "TurbineModel",
+    "TurbinePosition",
+    "BoundaryKind",
+    "ProjectBoundary",
+]

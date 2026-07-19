@@ -3,7 +3,7 @@
 Modular engineering platform for wind project development, GIS/layout, meteorological analysis, energy yield, environmental and site-suitability studies, operations, and later electrical/financial and hybrid modelling.
 
 **Application language:** English (UD-005).  
-**Current release:** **v0.2.0** (R0 complete). **R1 in progress** (CRS/transform done).
+**Current:** **v0.2.0** + R1 layout APIs (CRS, turbines, spacing, boundaries, exports). Next: R2 METEO.
 
 ## Quick start
 
@@ -33,7 +33,7 @@ Postgres is exposed on host port **5433**.
 | Files | `/api/v1/projects/{id}/files/`, `/api/v1/files/{id}/download/` |
 | Calculations | `/api/v1/calculation-methods/`, `.../calculation-runs/` |
 | Reports | `/api/v1/projects/{id}/reports/` |
-| GIS | `/api/v1/gis/crs/`, `/api/v1/gis/transform/`, `/api/v1/projects/{id}/crs/` |
+| GIS | CRS, transform, turbine catalogue/positions, distances, spacing-check, boundaries, spatial-validation, `layout.geojson`, `turbines.csv` |
 
 Use header: `Authorization: Token <token>`.
 

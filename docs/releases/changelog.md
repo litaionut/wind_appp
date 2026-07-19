@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+- CAP-R1 layout pack: turbine catalogue/positions, distances, spacing, boundaries, GeoJSON/CSV exports
 - CAP-R1-01/02 CRS catalogue, project CRS, pyproj transform API
 
 ## [0.2.0] — 2026-07-19 (Release 0 complete)
