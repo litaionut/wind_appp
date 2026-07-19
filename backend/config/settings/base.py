@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "rest_framework.authtoken",
+    "corsheaders",
     "apps.core",
     "apps.identity",
     "apps.organizations",
@@ -50,6 +51,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -104,7 +106,7 @@ STATIC_URL = "static/"
 MEDIA_URL = "/media/"
 MEDIA_ROOT = REPO_ROOT / "media"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-APPLICATION_VERSION = os.environ.get("APPLICATION_VERSION", "0.2.0")
+APPLICATION_VERSION = os.environ.get("APPLICATION_VERSION", "0.3.0")
 
 REST_FRAMEWORK = {
     "DEFAULT_RENDERER_CLASSES": [

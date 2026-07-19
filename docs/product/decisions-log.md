@@ -33,12 +33,15 @@
 | AD-012 | Architecture | Spacing, boundaries, validation, layout exports | **Approved** | 2026-07-19 | Under UD-008 |
 | AD-013 | Architecture | METEO campaigns, sensors, TS import, rose, density | **Approved** | 2026-07-19 | Under UD-008 |
 | AD-014 | Architecture | Power curves + gross_energy_v1 preliminary AEP | **Approved** | 2026-07-19 | Under UD-008 |
+| UD-010 | User | Tag `v0.3.0` = API roadmap skeleton (R1–R9 stubs); proceed to first UI | **Approved** | 2026-07-19 | Owner: “go” |
+| UD-002 | User | Frontend = **React + Vite + TypeScript** SPA under `frontend/` | **Approved** | 2026-07-19 | Was deferred; unlocked |
+| AD-015 | Architecture | First UI slice: login, orgs/projects, project energy AEP; CORS for local Vite; Token auth | **Approved** | 2026-07-19 | Under UD-008 / UD-010 |
 
 ## Deferred decisions (explicitly not blocking)
 
 | ID | Type | Statement | Status | Next review |
 |----|------|-----------|--------|-------------|
-| UD-002 | User | Frontend framework (React / Vue / other) | **Deferred** | First UI capability |
+| — | — | Interactive map UI (CAP-R1-03) | Deferred | After thin SPA |
 
 ## Proposed decisions (awaiting approval)
 

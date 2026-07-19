@@ -3,7 +3,7 @@
 Modular engineering platform for wind project development, GIS/layout, meteorological analysis, energy yield, environmental and site-suitability studies, operations, and later electrical/financial and hybrid modelling.
 
 **Application language:** English (UD-005).  
-**Current:** **v0.2.0** + R1 layout + R2 METEO + R3 gross energy. Continuing R4+ under UD-008.
+**Current:** **`v0.3.0`** API roadmap skeleton + first React SPA (`frontend/`).
 
 ## Quick start
 
@@ -19,7 +19,16 @@ docker compose up -d db
 .\.venv\Scripts\python backend\manage.py runserver
 ```
 
-Postgres is exposed on host port **5433**.
+In another terminal:
+
+```powershell
+cd frontend
+npm install
+npm run dev
+```
+
+UI: http://127.0.0.1:5173 · API: http://127.0.0.1:8000  
+Postgres host port **5433**.
 
 ## Core API (v1)
 
@@ -33,7 +42,8 @@ Postgres is exposed on host port **5433**.
 | Files | `/api/v1/projects/{id}/files/`, `/api/v1/files/{id}/download/` |
 | Calculations | `/api/v1/calculation-methods/`, `.../calculation-runs/` |
 | Reports | `/api/v1/projects/{id}/reports/` |
-| GIS | CRS, transform, turbine catalogue/positions, distances, spacing-check, boundaries, spatial-validation, `layout.geojson`, `turbines.csv` |
+| GIS | CRS, transform, turbine catalogue/positions, distances, spacing-check, boundaries, GeoJSON/CSV |
+| METEO / Energy / Env / Suitability / Ops / Financial / Hybrid | See `docs/releases/changelog.md` |
 
 Use header: `Authorization: Token <token>`.
 
@@ -46,8 +56,8 @@ pytest
 
 ## Documentation
 
-[docs/README.md](docs/README.md) · [R0 completion](docs/gates/GATE-E-R0-COMPLETION.md)
+[docs/README.md](docs/README.md) · [frontend/README.md](frontend/README.md)
 
 ## Next
 
-Release 1 — GIS and layout (CRS, turbines, spacing). Operating model: [docs/agents/collaboration-workflow.md](docs/agents/collaboration-workflow.md) (UD-008 standing approval).
+Interactive project map (CAP-R1-03) and deeper EYA modules after the thin SPA vertical slice.

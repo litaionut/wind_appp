@@ -8,9 +8,12 @@ asgiref==3.12.1
     # via django
 certifi==2026.6.17
     # via pyproj
+django-cors-headers==4.9.0
+    # via -r requirements/base.in
 django==5.2.16
     # via
     #   -r requirements/base.in
+    #   django-cors-headers
     #   djangorestframework
 djangorestframework==3.17.1
     # via -r requirements/base.in

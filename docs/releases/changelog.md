@@ -6,6 +6,11 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+- First React SPA (`frontend/`): login, organizations/projects, project AEP slice (UD-002 / AD-015)
+- CORS support for local Vite (`django-cors-headers`)
+
+### Added (included in `v0.3.0`)
+
 - CAP-R4 advanced EYA stubs: MCP linear, Jensen wake, P50/P90 uncertainty
 - CAP-R5 environment: receptors, noise spreading stub, shadow hours proxy
 - CAP-R6 site suitability stubs: IEC class, terrain complexity
@@ -16,6 +21,12 @@ All notable changes to this project will be documented in this file.
 - CAP-R2 METEO foundation: campaigns, sensors, timeseries import, QC, wind rose, air density
 - CAP-R1 layout pack: turbine catalogue/positions, distances, spacing, boundaries, GeoJSON/CSV exports
 - CAP-R1-01/02 CRS catalogue, project CRS, pyproj transform API
+
+## [0.3.0] — 2026-07-19
+
+### Added
+
+- API roadmap skeleton tagged: R1–R9 engineering stubs on `main`
 
 ## [0.2.0] — 2026-07-19 (Release 0 complete)
 

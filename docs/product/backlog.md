@@ -19,7 +19,8 @@ Accepted.
 | CAP-R1-11/12 | Boundaries + exclusions | Accepted |
 | CAP-R1-13 | Spatial validation | Accepted |
 | CAP-R1-14/15 | GeoJSON + CSV exports | Accepted |
-| CAP-R1-03 | Interactive project map UI | Deferred (needs frontend UD-002) |
+| CAP-R1-03 | Interactive project map UI | Deferred (after thin SPA) |
+| CAP-UI-01 | React SPA login + orgs/projects + AEP slice | **Implemented** (`frontend/`) |
 
 ## Release 2 — METEO (foundation in progress)
 
