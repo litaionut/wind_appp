@@ -6,7 +6,7 @@ Modular engineering platform for wind project development, GIS/layout, meteorolo
 
 ## Current status
 
-**CAP-R0-05 projects** done. Next: project membership API (CAP-R0-06).
+**M0.3 in progress** — projects + project membership done. Next: audit framework (CAP-R0-07).
 
 Stack: Django + DRF + PostgreSQL + Token auth + multi-tenant organizations.
 
@@ -86,6 +86,8 @@ Call authenticated endpoints with header: `Authorization: Token <token>`.
 | PATCH/DELETE | `/api/v1/organizations/{id}/members/{mid}/` | Token (org_admin) |
 | GET/POST | `/api/v1/organizations/{id}/projects/` | Token (org member) |
 | GET/PATCH | `/api/v1/projects/{id}/` | Token (project member / admin) |
+| GET/POST | `/api/v1/projects/{id}/members/` | Token (member list / project admin) |
+| PATCH/DELETE | `/api/v1/projects/{id}/members/{mid}/` | Token (project admin) |
 
 Creating an organization makes you `org_admin`. Creating a project makes you `project_admin`.
 

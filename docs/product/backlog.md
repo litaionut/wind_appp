@@ -49,8 +49,8 @@
 | ID | Item | Band | Status | Dependencies |
 |----|------|------|--------|--------------|
 | CAP-R0-05 | Projects | P0 | Accepted | AD-006 |
-| CAP-R0-06 | Project membership management API | P0 | Next | CAP-R0-05 |
-| CAP-R0-07 | Audit-event framework | P0 | Backlog | CAP-R0-02 |
+| CAP-R0-06 | Project membership management API | P0 | Accepted | AD-007 |
+| CAP-R0-07 | Audit-event framework | P0 | Next | CAP-R0-02 |
 
 ## Parking lot (discovered later — do not implement now)
 
