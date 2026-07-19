@@ -42,7 +42,15 @@
 |----|------|------|--------|--------------|
 | CAP-R0-02 | Authentication baseline | P0 | Accepted | UD-003, SD-001, AD-003 |
 | CAP-R0-03 | Organizations | P0 | Accepted | AD-004; creator → org_admin |
-| CAP-R0-04 | Organization membership management API | P0 | Next | CAP-R0-03 |
+| CAP-R0-04 | Organization membership management API | P0 | Accepted | AD-005 |
+
+## Next milestone: M0.3 — Projects & authz
+
+| ID | Item | Band | Status | Dependencies |
+|----|------|------|--------|--------------|
+| CAP-R0-05 | Projects | P0 | Next | CAP-R0-04 |
+| CAP-R0-06 | Project membership & permissions | P0 | Backlog | CAP-R0-05 |
+| CAP-R0-07 | Audit-event framework | P0 | Backlog | CAP-R0-02 |
 
 ## Parking lot (discovered later — do not implement now)
 

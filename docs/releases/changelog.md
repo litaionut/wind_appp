@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+- CAP-R0-04 organization membership management API
 - CAP-R0-03 organizations API with membership-scoped isolation
 - CAP-R0-02 authentication (Token API: login, logout, me)
 - UD-008 standing approval for Coordinator-recommended gates
