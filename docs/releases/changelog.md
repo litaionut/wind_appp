@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+- CAP-R3 preliminary energy: power curves + gross_energy_v1 AEP
 - CAP-R2 METEO foundation: campaigns, sensors, timeseries import, QC, wind rose, air density
 - CAP-R1 layout pack: turbine catalogue/positions, distances, spacing, boundaries, GeoJSON/CSV exports
 - CAP-R1-01/02 CRS catalogue, project CRS, pyproj transform API

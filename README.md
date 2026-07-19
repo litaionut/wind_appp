@@ -3,7 +3,7 @@
 Modular engineering platform for wind project development, GIS/layout, meteorological analysis, energy yield, environmental and site-suitability studies, operations, and later electrical/financial and hybrid modelling.
 
 **Application language:** English (UD-005).  
-**Current:** **v0.2.0** + R1 layout + R2 METEO foundation. Next: R3 preliminary energy.
+**Current:** **v0.2.0** + R1 layout + R2 METEO + R3 gross energy. Continuing R4+ under UD-008.
 
 ## Quick start
 

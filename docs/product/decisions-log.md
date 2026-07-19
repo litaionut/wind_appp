@@ -32,6 +32,7 @@
 | AD-011 | Architecture | Turbine catalogue, positions, distances | **Approved** | 2026-07-19 | Under UD-008 |
 | AD-012 | Architecture | Spacing, boundaries, validation, layout exports | **Approved** | 2026-07-19 | Under UD-008 |
 | AD-013 | Architecture | METEO campaigns, sensors, TS import, rose, density | **Approved** | 2026-07-19 | Under UD-008 |
+| AD-014 | Architecture | Power curves + gross_energy_v1 preliminary AEP | **Approved** | 2026-07-19 | Under UD-008 |
 
 ## Deferred decisions (explicitly not blocking)
 

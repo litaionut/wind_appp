@@ -15,4 +15,5 @@ urlpatterns = [
     path("api/v1/", include("apps.reporting.api.urls")),
     path("api/v1/", include("apps.gis.api.urls")),
     path("api/v1/", include("apps.meteo.api.urls")),
+    path("api/v1/", include("apps.energy.api.urls")),
 ]

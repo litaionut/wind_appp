@@ -33,8 +33,14 @@ Accepted.
 | CAP-R2-18 | Air density | Accepted |
 | CAP-R2-shear | Shear / TI / full METEO report | Backlog |
 
-## Next — Release 3 Preliminary energy
+## Release 3 — Preliminary energy (in progress)
 
 | ID | Item | Status |
 |----|------|--------|
-| CAP-R3-01 | Power curve model | Next |
+| CAP-R3-01 | Power curve + CSV import | Accepted |
+| CAP-R3-05 | Gross energy `gross_energy_v1` | Accepted |
+| CAP-R3-wake | Physical wake models | Backlog (constant loss factor only) |
+
+## Next — Release 4+
+
+Advanced EYA, environment, suitability, ops SCADA, financial, hybrid — high-level until started.
