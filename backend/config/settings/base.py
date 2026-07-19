@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "apps.calculations",
     "apps.reporting",
     "apps.gis",
+    "apps.meteo",
 ]
 
 MIDDLEWARE = [

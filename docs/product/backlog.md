@@ -21,10 +21,20 @@ Accepted.
 | CAP-R1-14/15 | GeoJSON + CSV exports | Accepted |
 | CAP-R1-03 | Interactive project map UI | Deferred (needs frontend UD-002) |
 
-## Next — Release 2 METEO
+## Release 2 — METEO (foundation in progress)
 
 | ID | Item | Status |
 |----|------|--------|
-| CAP-R2-01 | Measurement campaign entity | Next |
-| CAP-R2-02 | Sensors / heights | Backlog |
-| CAP-R2-05 | Time-series CSV import | Backlog |
+| CAP-R2-01 | Measurement campaign | Accepted |
+| CAP-R2-02 | Sensors / heights | Accepted |
+| CAP-R2-05 | Time-series CSV import | Accepted |
+| CAP-R2-QC | Range + frozen + availability | Accepted |
+| CAP-R2-14 | Wind rose | Accepted |
+| CAP-R2-18 | Air density | Accepted |
+| CAP-R2-shear | Shear / TI / full METEO report | Backlog |
+
+## Next — Release 3 Preliminary energy
+
+| ID | Item | Status |
+|----|------|--------|
+| CAP-R3-01 | Power curve model | Next |
