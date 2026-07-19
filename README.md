@@ -6,9 +6,9 @@ Modular engineering platform for wind project development, GIS/layout, meteorolo
 
 ## Current status
 
-**CAP-R0-01 accepted** (`v0.1.0`, UD-006). Next: authentication (CAP-R0-02).
+**CAP-R0-02 authentication** implemented (UD-008 standing approval). Next: organizations.
 
-Stack (AD-001 / AD-002): Django + Django REST Framework + PostgreSQL.
+Stack (AD-001 / AD-002 / AD-003): Django + Django REST Framework + PostgreSQL + Token auth.
 
 ## Documentation
 
@@ -55,6 +55,31 @@ Expected JSON:
 ```json
 {"status":"ok","service":"wind-platform-api","api_version":"v1"}
 ```
+
+## Authentication (CAP-R0-02)
+
+Public self-registration is disabled. Create a user first:
+
+```powershell
+.\.venv\Scripts\python backend\manage.py createsuperuser
+```
+
+Login (obtain token):
+
+```powershell
+Invoke-RestMethod -Method Post -Uri http://127.0.0.1:8000/api/v1/auth/login/ `
+  -ContentType "application/json" `
+  -Body '{"username":"YOUR_USER","password":"YOUR_PASSWORD"}'
+```
+
+Call authenticated endpoints with header: `Authorization: Token <token>`.
+
+| Method | Path | Auth |
+|--------|------|------|
+| POST | `/api/v1/auth/login/` | Public |
+| POST | `/api/v1/auth/logout/` | Token |
+| GET | `/api/v1/auth/me/` | Token |
+| GET | `/api/v1/health/` | Public |
 
 ## Tests
 

@@ -1,7 +1,7 @@
 # Agent Collaboration Workflow
 
 **Document ID:** AG-001  
-**Status:** Proposed  
+**Status:** Active (UD-008 standing approval)  
 **Last updated:** 2026-07-19
 
 ---
@@ -48,6 +48,7 @@ Backlog
 6. **Blocker/major review findings** return work to development.
 7. **Unresolved critical engineering assumptions** → Coordinator stops work.
 8. **Human product owner** has final authority at Gates A, B, and E.
+9. **UD-008 standing approval:** When the Coordinator presents a recommended default, gates A/B/E may be recorded as approved without a separate owner reply, unless the owner intervenes or the item is flagged high-risk. Owner may revoke UD-008 at any time.
 
 ## Conflict resolution
 

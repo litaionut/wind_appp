@@ -36,12 +36,12 @@
 |----|------|------|--------|-------|
 | CAP-R0-01 | Application skeleton, health-check, CI | P0 | Accepted | UD-006; tag `v0.1.0` when git ready |
 
-## Active milestone: M0.2 — Identity & tenants (next)
+## Active milestone: M0.2 — Identity & tenants
 
 | ID | Item | Band | Status | Dependencies |
 |----|------|------|--------|--------------|
-| CAP-R0-02 | Authentication baseline | P0 | Backlog — next Gate A | CAP-R0-01 accepted |
-| CAP-R0-03 | Organizations | P0 | Backlog | CAP-R0-02 |
+| CAP-R0-02 | Authentication baseline | P0 | Accepted | UD-003, SD-001, AD-003 |
+| CAP-R0-03 | Organizations | P0 | Next | CAP-R0-02 |
 | CAP-R0-04 | Organization membership | P0 | Backlog | CAP-R0-03 |
 
 ## Parking lot (discovered later — do not implement now)
