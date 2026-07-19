@@ -6,24 +6,23 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
-- CAP-R0-07 append-only audit events (org/project/auth actions)
-- CAP-R0-06 project membership management API
-- CAP-R0-05 projects API (org-scoped, membership isolation)
-- CAP-R0-04 organization membership management API
-- CAP-R0-03 organizations API with membership-scoped isolation
-- CAP-R0-02 authentication (Token API: login, logout, me)
-- UD-008 standing approval for Coordinator-recommended gates
+- _(next: Release 1 GIS/layout)_
 
-## [0.1.0] — 2026-07-19 (accepted — UD-006)
+## [0.2.0] — 2026-07-19 (Release 0 complete)
 
 ### Added
 
-- Django + DRF application skeleton (`backend/`)
-- `GET /api/v1/health/` liveness endpoint (English JSON)
-- PostgreSQL via Docker Compose
-- pip-tools lockfiles, pytest, ruff, GitHub Actions CI
-- M0.0 documentation system of record under `/docs`
+- CAP-R0-08 file metadata + local storage upload/download
+- CAP-R0-09…11 calculation method registry, runs, logs, stub executor `platform_stub_v1`
+- CAP-R0-12…13 report artifacts + basic JSON report generation
+- CAP-R0-14…15 ops docs (deploy/backup/monitor/rollback)
+- CAP-R0-16 R0 end-to-end foundation test
+- CAP-R0-02…07 auth, orgs, projects, audit (prior commits in 0.2 train)
 
-## [0.0.0] — 2026-07-19
+## [0.1.0] — 2026-07-19
 
-- Repository initialized with governance documentation only
+### Added
+
+- Django + DRF application skeleton
+- `GET /api/v1/health/`
+- Governance documentation under `/docs`

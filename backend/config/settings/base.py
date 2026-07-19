@@ -35,6 +35,9 @@ INSTALLED_APPS = [
     "apps.organizations",
     "apps.projects",
     "apps.audit",
+    "apps.files",
+    "apps.calculations",
+    "apps.reporting",
 ]
 
 MIDDLEWARE = [
@@ -90,7 +93,10 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = "static/"
+MEDIA_URL = "/media/"
+MEDIA_ROOT = REPO_ROOT / "media"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+APPLICATION_VERSION = os.environ.get("APPLICATION_VERSION", "0.2.0")
 
 REST_FRAMEWORK = {
     "DEFAULT_RENDERER_CLASSES": [
@@ -98,6 +104,8 @@ REST_FRAMEWORK = {
     ],
     "DEFAULT_PARSER_CLASSES": [
         "rest_framework.parsers.JSONParser",
+        "rest_framework.parsers.FormParser",
+        "rest_framework.parsers.MultiPartParser",
     ],
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "rest_framework.authentication.TokenAuthentication",

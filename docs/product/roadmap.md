@@ -30,7 +30,7 @@
 
 | Release | Name | Primary objective | Status |
 |---------|------|-------------------|--------|
-| R0 | Engineering platform foundation | Secure, auditable, versioned base | **Approved scope — M0.1 at Gate B** |
+| R0 | Engineering platform foundation | Secure, auditable, versioned base | **Complete — `v0.2.0`** |
 | R1 | GIS and layout | Coordinates, turbines, spacing, exports | Proposed (high-level) |
 | R2 | METEO | Measurements, QC, roses, shear, density | Proposed (high-level) |
 | R3 | Preliminary energy | Power curves, gross energy, initial wake | Proposed (high-level) |
@@ -194,7 +194,8 @@ Detailed tasks exist only for **M0.0** (done in this package) and **M0.1** (prop
 - Vision + R0–R9 roadmap structure (UD-001)
 - Stack: Django + DRF + PostgreSQL (AD-001)
 - Application language: English (UD-005)
-- CAP-R0-01 authorized to Gate B (UD-004); implementation waits for AD-002
+- Release 0 complete (`v0.2.0`, UD-009)
+- Next detailed work: Release 1 GIS/layout (high-level until R1 Gate A)
 
 ## Proposed future scope
 

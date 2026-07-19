@@ -26,6 +26,8 @@
 | AD-006 | Architecture | CAP-R0-05 Projects + project membership on create | **Approved** | 2026-07-19 | Under UD-008 |
 | AD-007 | Architecture | CAP-R0-06 project membership management API | **Approved** | 2026-07-19 | Under UD-008 |
 | AD-008 | Architecture | CAP-R0-07 append-only audit event framework | **Approved** | 2026-07-19 | Under UD-008 |
+| AD-009 | Architecture | CAP-R0-08…16 files, calcs, reporting, ops, R0 exit | **Approved** | 2026-07-19 | Under UD-008 |
+| UD-009 | User | Release 0 foundation accepted as `v0.2.0` (standing approval) | **Approved** | 2026-07-19 | Under UD-008 |
 
 ## Deferred decisions (explicitly not blocking)
 

@@ -44,6 +44,6 @@ Exact tags assigned at Gate E of each increment.
 
 | Item | Value |
 |------|-------|
-| Current version | `0.1.0` (accepted; tag when git history exists) |
-| Active release train | Release 0 — M0.2 next |
-| Blocked on | Gate A for CAP-R0-02 (authentication) |
+| Current version | `0.2.0` (Release 0 complete) |
+| Active release train | Release 1 (GIS/layout) — high-level until Gate A |
+| Blocked on | Product owner start of R1 / CAP-R1-01 |

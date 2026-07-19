@@ -1,31 +1,22 @@
 # Release Notes
 
-## 0.1.0 — Application skeleton (accepted) — 2026-07-19
+## 0.2.0 — Release 0 foundation complete — 2026-07-19
 
-### Summary
-
-First runnable platform baseline: Django API with health-check, local Postgres, automated tests, and CI. No domain engineering features yet. Application language: English.
+Secure multi-tenant foundation: authentication, organizations/projects with RBAC-ish roles, audit trail, project files, versioned calculation runs (stub method), and basic report artifacts. English UI/API strings. Automated E2E foundation test included.
 
 ### Upgrade
 
-1. Install Python 3.12 and Docker.
-2. `pip install -r requirements/dev.txt`
-3. `copy .env.example .env`
-4. `docker compose up -d db`
-5. `python backend/manage.py migrate`
-6. `python backend/manage.py runserver`
+1. `pip install -r requirements/dev.txt`
+2. `docker compose up -d db`
+3. `python backend/manage.py migrate`
+4. Restart app
 
 ### Rollback
 
-See README “Rollback (CAP-R0-01)” or `docs/operations/rollback.md`.
-
-### Compatibility
-
-- Pre-1.0 foundation (`0.x`)
-- No public API compatibility guarantees beyond `/api/v1/health/`
+See `docs/operations/rollback.md`. Tag `v0.1.0` is the previous skeleton-only release.
 
 ---
 
-## 0.0.0 — Documentation foundation (2026-07-19)
+## 0.1.0 — Application skeleton — 2026-07-19
 
-Created the product vision, roadmap, architecture concepts, agent workflow, approval gates, and Release 0 plan. No application runtime.
+Django health endpoint, Compose Postgres, CI, governance docs.

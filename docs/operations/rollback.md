@@ -1,27 +1,25 @@
-# Rollback Procedures
+# Rollback (Release 0)
 
 **Document ID:** OPS-002  
-**Status:** Proposed  
-**Last updated:** 2026-07-19
+**Status:** Active for R0
 
----
+## Application
 
-## Pre-implementation note
+1. Stop the app process
+2. `git checkout <previous-tag>` (e.g. `v0.1.0` or prior `v0.2.0` candidate)
+3. Reinstall lockfile: `pip install -r requirements/dev.txt`
+4. Restore DB dump if schema incompatible
+5. Restore `media/` if needed
+6. Start app; verify `GET /api/v1/health/`
+7. Smoke: login → list organizations
 
-Concrete commands will be filled when CAP-R0-01 defines the runtime (Docker Compose, etc.).
+## Migrations
 
-## Template for each release
+Prefer reversible migrations. If a forward migration cannot be reversed safely, restore the pre-migration database snapshot instead of `migrate <app> <older>`.
 
-```text
-Release: vX.Y.Z
-Previous: vX.Y.Z-1
-Migrations: <forward> / <backward>
-DB snapshot: <location/policy>
-App rollback: checkout tag + redeploy
-Verification: GET /health → 200; smoke tests; permission check
-Owner: <role>
-```
+## Release 0 tags
 
-## Current state
-
-No production release exists. Rollback for documentation-only package: revert Git commit(s) that added `/docs`.
+| Tag | Content |
+|-----|---------|
+| `v0.1.0` | Skeleton |
+| `v0.2.0` | Full R0 foundation (auth → reporting) |
