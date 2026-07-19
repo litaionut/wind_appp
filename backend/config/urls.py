@@ -13,4 +13,5 @@ urlpatterns = [
     path("api/v1/", include("apps.files.api.urls")),
     path("api/v1/", include("apps.calculations.api.urls")),
     path("api/v1/", include("apps.reporting.api.urls")),
+    path("api/v1/", include("apps.gis.api.urls")),
 ]

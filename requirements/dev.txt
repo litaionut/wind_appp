@@ -8,6 +8,8 @@ asgiref==3.12.1
     # via django
 build==1.5.0
     # via pip-tools
+certifi==2026.6.17
+    # via pyproj
 click==8.4.2
     # via pip-tools
 colorama==0.4.6
@@ -38,6 +40,8 @@ psycopg-binary==3.3.4
     # via psycopg
 pygments==2.20.0
     # via pytest
+pyproj==3.7.2
+    # via -r requirements/base.in
 pyproject-hooks==1.2.0
     # via
     #   build

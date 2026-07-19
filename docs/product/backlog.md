@@ -14,14 +14,16 @@
 
 See `docs/gates/GATE-E-R0-COMPLETION.md`.
 
-## Next — Release 1 (GIS and layout) high-level
+## Release 1 — GIS and layout (in progress)
 
 | ID | Item | Band | Status |
 |----|------|------|--------|
-| CAP-R1-01 | CRS & coordinate model | P0 | Backlog — next Gate A when started |
-| CAP-R1-02 | Coordinate transform service | P0 | Backlog |
-| CAP-R1-03 | Project map | P0 | Backlog |
-| CAP-R1-04 | Turbine catalogue | P0 | Backlog |
+| CAP-R1-01 | CRS model + transform (pyproj) | P0 | Accepted |
+| CAP-R1-02 | _(merged into R1-01 transform API)_ | P0 | Accepted |
+| CAP-R1-03 | Project map | P0 | Next |
+| CAP-R1-04 | Turbine manufacturer/model catalogue | P0 | Backlog |
+| CAP-R1-05 | Turbine position import | P0 | Backlog |
+| CAP-R1-06 | Pairwise distance | P0 | Backlog |
 
 Detailed R1 tasks open only when R1 Gate A is started.
 
