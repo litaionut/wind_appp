@@ -50,7 +50,16 @@
 |----|------|------|--------|--------------|
 | CAP-R0-05 | Projects | P0 | Accepted | AD-006 |
 | CAP-R0-06 | Project membership management API | P0 | Accepted | AD-007 |
-| CAP-R0-07 | Audit-event framework | P0 | Next | CAP-R0-02 |
+| CAP-R0-07 | Audit-event framework | P0 | Accepted | AD-008 |
+
+## Next milestone: M0.4 — Files & calculations
+
+| ID | Item | Band | Status | Dependencies |
+|----|------|------|--------|--------------|
+| CAP-R0-08 | File metadata & storage | P0 | Next | CAP-R0-05 |
+| CAP-R0-09 | Calculation-run model | P0 | Backlog | CAP-R0-05 |
+| CAP-R0-10 | Calculation status & logs | P0 | Backlog | CAP-R0-09 |
+| CAP-R0-11 | Calculation-method registry | P0 | Backlog | CAP-R0-09 |
 
 ## Parking lot (discovered later — do not implement now)
 

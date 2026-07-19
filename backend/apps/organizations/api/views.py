@@ -6,6 +6,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.request import Request
 from rest_framework.response import Response
 
+from apps.audit.services import record_event
 from apps.organizations.api.serializers import OrganizationSerializer
 from apps.organizations.models import Organization, OrganizationMembership, OrganizationRole
 from apps.organizations.permissions import IsOrganizationAdmin
@@ -42,7 +43,28 @@ class OrganizationViewSet(viewsets.ModelViewSet):
             user=request.user,
             role=OrganizationRole.ORG_ADMIN,
         )
+        record_event(
+            action="organization.created",
+            actor=request.user,
+            organization=organization,
+            entity_type="organization",
+            entity_id=organization.id,
+            metadata={"name": organization.name},
+            request=request,
+        )
         return Response(
             self.get_serializer(organization).data,
             status=status.HTTP_201_CREATED,
+        )
+
+    def perform_update(self, serializer) -> None:
+        organization = serializer.save()
+        record_event(
+            action="organization.updated",
+            actor=self.request.user,
+            organization=organization,
+            entity_type="organization",
+            entity_id=organization.id,
+            metadata={"name": organization.name},
+            request=self.request,
         )

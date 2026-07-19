@@ -8,6 +8,7 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from apps.audit.services import record_event
 from apps.organizations.models import Organization, OrganizationMembership
 from apps.projects.api.serializers import ProjectSerializer
 from apps.projects.models import Project, ProjectMembership, ProjectRole
@@ -55,6 +56,16 @@ class OrganizationProjectListCreateView(APIView):
             user=request.user,
             role=ProjectRole.PROJECT_ADMIN,
         )
+        record_event(
+            action="project.created",
+            actor=request.user,
+            organization=organization,
+            project=project,
+            entity_type="project",
+            entity_id=project.id,
+            metadata={"name": project.name},
+            request=request,
+        )
         return Response(ProjectSerializer(project).data, status=status.HTTP_201_CREATED)
 
 
@@ -80,5 +91,15 @@ class ProjectDetailView(APIView):
         project = self.get_object(request, project_id)
         serializer = ProjectSerializer(project, data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)
-        serializer.save()
+        project = serializer.save()
+        record_event(
+            action="project.updated",
+            actor=request.user,
+            organization=project.organization,
+            project=project,
+            entity_type="project",
+            entity_id=project.id,
+            metadata={"name": project.name},
+            request=request,
+        )
         return Response(serializer.data)

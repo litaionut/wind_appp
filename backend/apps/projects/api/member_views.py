@@ -7,6 +7,7 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from apps.audit.services import record_event
 from apps.projects.api.member_serializers import (
     ProjectMembershipCreateSerializer,
     ProjectMembershipSerializer,
@@ -61,6 +62,19 @@ class ProjectMemberListCreateView(APIView):
             user=serializer.validated_data["user"],
             role=serializer.validated_data["role"],
         )
+        record_event(
+            action="project.member_added",
+            actor=request.user,
+            organization=project.organization,
+            project=project,
+            entity_type="project_membership",
+            entity_id=membership.id,
+            metadata={
+                "username": membership.user.username,
+                "role": membership.role,
+            },
+            request=request,
+        )
         return Response(
             ProjectMembershipSerializer(membership).data,
             status=status.HTTP_201_CREATED,
@@ -89,6 +103,19 @@ class ProjectMemberDetailView(APIView):
         except ProjectMembershipError as exc:
             raise ValidationError({"detail": exc.message}) from exc
         serializer.save()
+        record_event(
+            action="project.member_role_changed",
+            actor=request.user,
+            organization=project.organization,
+            project=project,
+            entity_type="project_membership",
+            entity_id=membership.id,
+            metadata={
+                "username": membership.user.username,
+                "role": membership.role,
+            },
+            request=request,
+        )
         return Response(serializer.data)
 
     def delete(self, request: Request, project_id, membership_id) -> Response:
@@ -104,5 +131,17 @@ class ProjectMemberDetailView(APIView):
             ensure_not_last_project_admin(membership)
         except ProjectMembershipError as exc:
             raise ValidationError({"detail": exc.message}) from exc
+        username = membership.user.username
+        membership_id_str = str(membership.id)
         membership.delete()
+        record_event(
+            action="project.member_removed",
+            actor=request.user,
+            organization=project.organization,
+            project=project,
+            entity_type="project_membership",
+            entity_id=membership_id_str,
+            metadata={"username": username},
+            request=request,
+        )
         return Response(status=status.HTTP_204_NO_CONTENT)

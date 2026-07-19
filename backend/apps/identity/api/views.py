@@ -8,6 +8,7 @@ from rest_framework.response import Response
 from rest_framework.throttling import AnonRateThrottle
 from rest_framework.views import APIView
 
+from apps.audit.services import record_event
 from apps.identity.api.serializers import LoginSerializer, UserSerializer
 
 
@@ -34,6 +35,13 @@ class LoginView(APIView):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         user = serializer.validated_data["user"]
         token, _created = Token.objects.get_or_create(user=user)
+        record_event(
+            action="auth.login",
+            actor=user,
+            entity_type="user",
+            entity_id=user.id,
+            request=request,
+        )
         return Response({"token": token.key}, status=status.HTTP_200_OK)
 
 
@@ -43,6 +51,13 @@ class LogoutView(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request: Request) -> Response:
+        record_event(
+            action="auth.logout",
+            actor=request.user,
+            entity_type="user",
+            entity_id=request.user.id,
+            request=request,
+        )
         Token.objects.filter(user=request.user).delete()
         return Response(
             {"detail": "Successfully logged out."},

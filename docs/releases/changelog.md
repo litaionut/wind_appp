@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+- CAP-R0-07 append-only audit events (org/project/auth actions)
 - CAP-R0-06 project membership management API
 - CAP-R0-05 projects API (org-scoped, membership isolation)
 - CAP-R0-04 organization membership management API

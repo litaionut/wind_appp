@@ -7,6 +7,7 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from apps.audit.services import record_event
 from apps.organizations.api.member_serializers import (
     OrganizationMembershipCreateSerializer,
     OrganizationMembershipSerializer,
@@ -61,6 +62,18 @@ class OrganizationMemberListCreateView(APIView):
             user=serializer.validated_data["user"],
             role=serializer.validated_data["role"],
         )
+        record_event(
+            action="organization.member_added",
+            actor=request.user,
+            organization=organization,
+            entity_type="organization_membership",
+            entity_id=membership.id,
+            metadata={
+                "username": membership.user.username,
+                "role": membership.role,
+            },
+            request=request,
+        )
         return Response(
             OrganizationMembershipSerializer(membership).data,
             status=status.HTTP_201_CREATED,
@@ -90,6 +103,18 @@ class OrganizationMemberDetailView(APIView):
         except MembershipError as exc:
             raise ValidationError({"detail": exc.message}) from exc
         serializer.save()
+        record_event(
+            action="organization.member_role_changed",
+            actor=request.user,
+            organization=organization,
+            entity_type="organization_membership",
+            entity_id=membership.id,
+            metadata={
+                "username": membership.user.username,
+                "role": membership.role,
+            },
+            request=request,
+        )
         return Response(serializer.data)
 
     def delete(self, request: Request, org_id, membership_id) -> Response:
@@ -105,5 +130,16 @@ class OrganizationMemberDetailView(APIView):
             ensure_not_last_admin(membership)
         except MembershipError as exc:
             raise ValidationError({"detail": exc.message}) from exc
+        username = membership.user.username
+        membership_id_str = str(membership.id)
         membership.delete()
+        record_event(
+            action="organization.member_removed",
+            actor=request.user,
+            organization=organization,
+            entity_type="organization_membership",
+            entity_id=membership_id_str,
+            metadata={"username": username},
+            request=request,
+        )
         return Response(status=status.HTTP_204_NO_CONTENT)
